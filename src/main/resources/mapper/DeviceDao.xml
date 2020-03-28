@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.energy.dao.DeviceDao">
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, code, name, parameter_type as parameterType, info_type as infoType, value_type as valueType, data_update_time dataUpdateTime, value </sql>
+
+
+    <select id="count" resultType="java.lang.Integer">
+        select count(*) from ibs_item_parameter
+    </select>
+    
+    <select id="queryList" resultType="map">
+        select <include refid="Base_Column_List" /> from ibs_item_parameter
+    </select>
+</mapper>
